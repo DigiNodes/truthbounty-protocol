@@ -8,7 +8,7 @@ TruthBounty is **not a monorepo**. Each repository is independently versioned, b
 
 ## 🔧 Backend API
 
-**Repository:** `truthbounty-api` DigiNodes/truthbounty-api
+**Repository:** `truthbounty-api` [truthbounty-api](https://github.com/DigiNodes/truthbounty-api)
 
 **Purpose:**
 - Off-chain claim lifecycle management
@@ -28,7 +28,7 @@ TruthBounty is **not a monorepo**. Each repository is independently versioned, b
 
 ## 🧠 Smart Contracts
 
-**Repository:** `truthbounty-contracts` DigiNodes/truthbounty-contracts
+**Repository:** `truthbounty-contracts` [truthbounty-contracts](https://github.com/DigiNodes/truthbounty-contracts)
 
 **Purpose:**
 - On-chain staking & slashing
@@ -47,7 +47,7 @@ TruthBounty is **not a monorepo**. Each repository is independently versioned, b
 
 ## 🎨 Frontend
 
-**Repository:** `truthbounty-frontend` DigiNodes/truthbounty-frontend
+**Repository:** `truthbounty-frontend` [truthbounty-frontend](https://github.com/DigiNodes/truthbounty-frontend)
 
 **Purpose:**
 - User interface for claims, verification, and reputation
@@ -66,7 +66,7 @@ TruthBounty is **not a monorepo**. Each repository is independently versioned, b
 
 All repositories MUST reference:
 
-- This repository’s `README.md` README.md
+- This repository’s `README.md` [READ.md](https://github.com/DigiNodes/truthbounty-protocol/blob/main/README.md)
 - `docs/protocol-spec.md`
 - `docs/architecture.md`
 
