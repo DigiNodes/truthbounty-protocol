@@ -1,6 +1,6 @@
 ## 📌 Summary
 
-Briefly explain what this PR does and **why**.
+Describe **what** this PR changes and **why** it is needed.
 
 ---
 
@@ -10,45 +10,49 @@ Closes #ISSUE_NUMBER
 
 ---
 
-## 🧠 Design Alignment
+## 🧠 Protocol Alignment (Required)
 
-Confirm alignment with canonical docs:
+By submitting this PR, you confirm:
 
-- [ ] protocol-spec.md
-- [ ] architecture.md
-- [ ] tokenomics.md (if applicable)
+- [ ] I have read the canonical TruthBounty documentation
+- [ ] This PR aligns with the protocol specification
+- [ ] This PR does NOT violate system invariants
+- [ ] Off-chain vs on-chain boundaries are preserved
+- [ ] Incentive alignment is unchanged or improved
 
-Explain any deviations.
-
----
-
-## 🔐 Security Considerations
-
-- New trust assumptions?
-- Potential attack vectors?
-- Failure modes?
+Canonical reference:
+https://github.com/DigiNodes/truthbounty
 
 ---
 
-## 🧪 Testing
+## 🔐 Security & Trust Considerations
 
-Describe tests added or run:
+- New trust assumptions? **Yes / No**
+- New attack surface? **Yes / No**
+
+If yes, explain clearly.
+
+---
+
+## 🧪 Testing & Validation
 
 - [ ] Unit tests
 - [ ] Integration tests
-- [ ] Manual testing
+- [ ] Manual validation
+
+Describe how this was tested.
 
 ---
 
-## 📸 Evidence (UI / UX only)
+## 📸 Evidence (UI only)
 
-Screenshots, recordings, or links (if applicable).
+Screenshots / recordings / design references.
 
 ---
 
-## ✅ Checklist
+## 🚫 Merge Blocker Acknowledgement
 
-- [ ] Code follows project conventions
-- [ ] No secrets committed
-- [ ] Docs updated where needed
-- [ ] PR is scoped to the issue
+I understand that this PR **will not be merged** if:
+- Protocol alignment is unclear
+- Security assumptions are undocumented
+- Scope deviates from the linked issue
