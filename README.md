@@ -1,212 +1,130 @@
 # 🔍 TruthBounty Protocol
 
-**Decentralized News Verification Infrastructure**  
-*A public-good protocol for incentivizing truth using cryptoeconomic guarantees*
+**Decentralized truth-verification infrastructure**  
+*A public-good protocol for establishing verifiable consensus through cryptoeconomic guarantees*
 
 ---
 
-## 🌍 What is TruthBounty?
+## What is TruthBounty?
 
-TruthBounty is a **decentralized fact-checking protocol** that transforms news verification into a **verifiable, incentive-aligned public good**.
+TruthBounty is a decentralized protocol for submitting evidence-backed claims, coordinating community verification, and resolving outcomes through transparent staking, reputation, settlement, reward, slashing, and dispute rules.
 
-Instead of relying on centralized authorities or opaque editorial processes, TruthBounty enables communities to:
+TruthBounty treats truth verification as public infrastructure. No backend operator, database administrator, or frontend application is permitted to independently create or finalize authoritative protocol outcomes.
 
-- Submit claims
-- Verify claims using stake-weighted participation
-- Build reputation through honest verification
-- Earn rewards for truthful contributions
-- Penalize misinformation through cryptoeconomic slashing
+## Canonical V2 Rule
 
-TruthBounty treats **truth as infrastructure**, not opinion.
+> **The blockchain is the canonical single source of truth for all protocol state.**
 
----
+Smart contracts own:
 
-## 🎯 Core Problem
+- claim existence and lifecycle;
+- verification votes and stake accounting;
+- consensus and settlement outcomes;
+- slashing, rewards, and treasury allocations;
+- disputes and authoritative reputation commitments.
 
-Misinformation spreads because:
+Off-chain systems index and present this state, but must not replace it.
 
-- Verification is unpaid or under-incentivized
-- Trust is centralized and opaque
-- Identities are cheap to fake
-- There is no economic downside to being wrong
+## V2 System Boundaries
 
-TruthBounty solves this by aligning **economic incentives, identity, and reputation** around truthful verification.
+### Smart contracts
 
----
+- enforce the canonical protocol state machines and economic rules;
+- emit versioned events for every authoritative transition;
+- expose versioned ABIs and deployment-address manifests;
+- use governance-controlled roles, parameters, pauses, and upgrades.
 
-## 🧠 High-Level System Design
+### Indexer and backend API
 
-TruthBounty is intentionally **modular** and **chain-aware**, composed of three primary layers:
+- consume finalized blockchain events;
+- build deterministic PostgreSQL read models that are rebuildable from chain history;
+- provide SIWE authentication, IPFS services, caching, search, notifications, analytics, and WebSocket updates;
+- never independently create claims, votes, verdicts, settlements, rewards, or finalization state.
 
-### 1️⃣ Frontend (User Interface)
-- Claim submission & verification
-- Evidence review
-- Reputation dashboards
-- Wallet & identity flows
+### Frontend dApp
 
-### 2️⃣ Backend (Off-chain Logic)
-- Claim lifecycle engine
-- Verification aggregation
-- Reputation scoring
-- Evidence management (IPFS)
-- Blockchain event indexing
-- Identity verification (Worldcoin ID)
+- connects supported EVM wallets through Wagmi/Viem;
+- submits every state-changing action directly to canonical contracts;
+- displays transaction submission, confirmation, indexing, and final UI state;
+- consumes versioned ABIs, addresses, events, and indexed APIs.
 
-### 3️⃣ Smart Contracts (On-chain Enforcement)
-- Staking & slashing
-- Reward distribution
-- Reputation anchoring
-- Dispute windows
-- Protocol invariants
+## Protocol Invariants
 
-> **Design Principle:**  
-> Complex computation happens **off-chain**, while **economic enforcement and finality live on-chain**.
+All implementations must preserve the following rules:
 
----
+1. Claims originate on-chain through a user-signed transaction.
+2. Votes and stakes are recorded and enforced on-chain.
+3. Settlement is deterministic and cannot be overridden by the backend.
+4. No reward exists without verifiable protocol participation.
+5. Slashed value has an exhaustive, auditable accounting destination.
+6. Reputation influences protocol behavior only through an approved commitment and verification mechanism.
+7. Critical transitions emit sufficient events for deterministic reconstruction.
+8. Derived databases are disposable and rebuildable from finalized events plus explicitly non-authoritative metadata.
+9. Frontend and API integrations use the same versioned contract release.
+10. A PR that violates an invariant must be rejected or redesigned.
 
-## 🔗 Ecosystem Alignment
+## Repository Structure
 
-TruthBounty is built within the **Ethereum ecosystem**, with compatibility for **public-good-oriented chains**.
+TruthBounty is split across four independently versioned repositories:
 
-### Ethereum & Optimism
-- Primary settlement layer
-- ERC-20 reward token
-- Low-cost reward distribution via Optimism
+| Repository | Responsibility |
+|---|---|
+| [`truthbounty-protocol`](https://github.com/DigiNodes/truthbounty-protocol) | Canonical specification, architecture, governance, invariants, audits, and cross-repository planning |
+| [`truthbounty-contract`](https://github.com/DigiNodes/truthbounty-contract) | Smart contracts, tests, deployment modules, ABIs, events, and address manifests |
+| [`truthbounty-api`](https://github.com/DigiNodes/truthbounty-api) | SIWE, IPFS, indexing, PostgreSQL projections, cache, query APIs, notifications, and analytics |
+| [`truthbounty-frontend`](https://github.com/DigiNodes/truthbounty-frontend) | Wallet integration, direct contract interactions, transaction UX, and indexed read experiences |
 
-### IPFS
-- Immutable, content-addressed evidence storage
+See [`repos.md`](repos.md) for the allowed dependency direction and detailed ownership boundaries.
 
-### Worldcoin ID
-- Sybil-resistant verifier identity
-- One-person-one-vote guarantees (weighted by stake)
+## Current V2 Governance Baseline
 
-### Drips Network
-- Sustainable funding for maintainers
-- Incentivized open-source contribution
-- Wave-based development cadence
+- [ADR-0001 — Canonical TruthBounty V2 Contract Topology](docs/architecture/ADR-0001-canonical-v2-contract-topology.md)
+- [TruthBounty V2 Audit Reconciliation](docs/audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
 
-### Stellar (Planned)
-- Low-fee micro-rewards
-- Global accessibility
-- Cross-chain reputation proofs
+The complete `PROTOCOL_V2_SPEC.md`, engineering blueprint, master backlog, and dependency graph must be published and reviewed before the remediation implementation waves are considered unfrozen.
 
----
+## Repository Ownership
 
-## 🧩 Protocol Invariants (Non-Negotiable)
+This repository owns documentation and cross-repository governance only. It must not contain:
 
-All implementations across repositories **MUST** respect these rules:
+- Solidity or application TypeScript;
+- deployment scripts or runtime configuration;
+- database schemas;
+- implementation-specific tests;
+- copied ABIs or environment-specific addresses.
 
-1. **Claims are off-chain, stakes are on-chain**
-2. **No rewards without verifiable stake**
-3. **Reputation must be earned, decays over time**
-4. **Incorrect verification carries economic risk**
-5. **Identity is Sybil-resistant**
-6. **All critical state transitions are auditable**
+Protocol-rule changes must be documented here before implementation repositories adopt them.
 
-If a PR violates an invariant, it must be rejected or redesigned.
+## Contribution Order
 
----
+1. Read the current protocol decisions and audit baseline.
+2. Confirm that the issue is not superseded or already covered elsewhere.
+3. Identify the canonical contract release and upstream dependencies.
+4. Implement in the owning repository.
+5. Test protocol invariants and integration behavior.
+6. Link the implementation PR to the governing document and issue.
 
-## 📂 Repository Structure
+Code existence alone does not satisfy an issue. Acceptance criteria, tests, integration, documentation, and protocol invariants must all pass.
 
-This repository is the **canonical source of truth**.
+## Ecosystem Alignment
 
-### Child Repositories
+- **Optimism / EVM:** canonical V2 execution and settlement environment.
+- **IPFS:** content-addressed evidence and metadata storage.
+- **World ID:** optional Sybil-resistance signal, subject to the protocol specification.
+- **Drips Network:** open-source funding and contribution coordination.
+- **Stellar:** exploratory only; it is not part of the canonical V2 EVM wallet runtime.
 
-| Repo | Description |
-|----|----|
-| `truthbounty-api` | Backend services & protocol logic |
-| `truthbounty-contracts` | Smart contracts (staking, rewards, reputation) |
-| `truthbounty-frontend` | User interface & dashboards |
+## Security
 
-### This Repository Owns
+Report security-sensitive findings privately to the maintainers before public disclosure when exploitation could place users or funds at risk.
 
-docs/
-├── architecture.md # Full system architecture
-├── protocol-spec.md # Protocol rules & flows
-├── tokenomics.md # Reward & incentive model
-├── threat-model.md # Security & trust assumptions
-└── glossary.md
+Protocol deployment is blocked until canonical contract composition, roles, treasury accounting, event schemas, and migration controls pass review.
 
-designs/
-├── flows/
-├── screens/
-└── component-map.md
-
-.github/
-├── ISSUE_TEMPLATE/
-└── PULL_REQUEST_TEMPLATE.md
-
-
----
-
-## 🧭 How to Contribute
-
-1. **Read the canonical docs**
-2. Pick an issue from a child repo
-3. Ensure your work aligns with protocol invariants
-4. Reference this repo in your PR
-
-All contributors are expected to:
-- Respect protocol boundaries
-- Document assumptions
-- Write tests for logic
-- Avoid “local optimizations” that break global behavior
-
----
-
-## 🧪 How Contributions Are Evaluated
-
-PRs are reviewed based on:
-
-- Alignment with protocol spec
-- Security implications
-- Incentive correctness
-- Test coverage
-- Clarity & documentation
-
-This project prioritizes **correctness over speed**.
-
----
-
-## 🛡️ Security & Trust Assumptions
-
-- Off-chain logic is assumed to be **honest-but-verifiable**
-- On-chain logic is **trust-minimized**
-- Identities are Sybil-resistant but privacy-preserving
-- All economic actions must be reproducible from logs
-
-See `docs/threat-model.md` for details.
-
----
-
-## 📜 License
+## License
 
 MIT — open-source, forkable, and community-driven.
 
 ---
 
-## 🌊 Drips Wave Participation
+**Truth is not free—but it should be worth defending.**
 
-TruthBounty participates in **Drips Network Waves** to:
-
-- Attract serious contributors
-- Fund maintainers
-- Build long-term open-source momentum
-
-All Wave issues are designed to:
-- Have real protocol impact
-- Be fairly scoped
-- Align with long-term vision
-
----
-
-## 🙏 Acknowledgements
-
-Built by the community.  
-Maintained with intention.  
-Aligned for truth.
-
----
-
-**Truth is not free — but it should be worth defending.**
