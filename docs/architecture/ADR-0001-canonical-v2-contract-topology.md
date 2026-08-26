@@ -2,6 +2,7 @@
 
 **Status:** Proposed  
 **Date:** 2026-08-25  
+**Last updated:** 2026-08-26  
 **Decision owners:** TruthBounty maintainers  
 **Related audit:** [TruthBounty V2 Audit Reconciliation](../audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
 
@@ -34,6 +35,12 @@ The suite will separate protocol responsibilities into independently auditable m
 - governance-controlled parameters, pausing, and upgrades.
 
 No backend service may replace these contracts as the authority for claim creation, voting, settlement, slashing, rewards, or finalization.
+
+## Network and Programme Boundary
+
+TruthBounty V2 executes on Optimism/EVM. Its contracts, wallets, transactions, settlement, ABIs, address manifests, and chain configuration must remain EVM-compatible.
+
+Drips Stellar Wave is used only for open-source contribution coordination and funding. It does not introduce Stellar, Soroban, Freighter, or any Stellar runtime dependency into TruthBounty. A future network change would require a separate accepted ADR and must not be inferred from programme participation.
 
 ## Component Status
 
@@ -154,7 +161,8 @@ Rejected because two authoritative paths would produce ambiguous state, incompat
 
 ### Costs
 
-- existing closed issues must be revalidated;
+- existing implementation must be re-audited independently of legacy issue status;
+- legacy issues remain archived while new clean-slate V2 issues govern all implementation work;
 - integration and deployment work may supersede legacy implementation;
 - cross-module invariant testing becomes mandatory;
 - frontend development remains blocked until the first canonical deployment artifacts are published.
