@@ -88,11 +88,27 @@ No other dependency may transfer protocol authority from the contracts to an off
 - Protocol-rule changes begin in `truthbounty-protocol`.
 - Breaking ABI or event changes require an accepted decision and migration plan.
 - Application repositories must pin a versioned contract release.
-- A closed issue must still be reopened or superseded when its acceptance criteria are not satisfied by the live implementation.
-- Cross-repository changes must link their governing document, dependency issues, and integration tests.
+- Existing GitHub issues are archived historical records and must not be reopened, modified, relabelled, or activated as V2 work.
+- All implementation work must be represented by newly authored clean-slate V2 issues with fresh identifiers, current dependencies, objective acceptance criteria, tests, and security requirements.
+- Cross-repository changes must link their governing document, new V2 dependency issues, and integration tests.
+
+## Drips Stellar Wave Boundary
+
+Drips Stellar Wave is a contribution and funding programme, not a TruthBounty runtime dependency.
+
+Wave-approved repositories are:
+
+- `truthbounty-contract`;
+- `truthbounty-api`;
+- `truthbounty-frontend`.
+
+`truthbounty-protocol` is not currently Wave-approved. Cross-repository specifications, ADRs, audit history, and master planning remain maintainer-governed here. Implementation-specific documentation may be contributed in the approved repository that owns it.
+
+The external `Stellar Wave` label is an activation control. It may be applied only after a new V2 issue reaches `wave-ready` and a maintainer explicitly approves publication. Candidate generation and backlog automation must never apply it.
 
 ## Current Governance References
 
 - [ADR-0001 — Canonical TruthBounty V2 Contract Topology](docs/architecture/ADR-0001-canonical-v2-contract-topology.md)
 - [TruthBounty V2 Audit Reconciliation](docs/audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
+- [Drips Stellar Wave Operations](docs/operations/DRIPS_STELLAR_WAVE_OPERATIONS.md)
 
