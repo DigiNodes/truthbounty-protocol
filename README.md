@@ -80,8 +80,9 @@ See [`repos.md`](repos.md) for the allowed dependency direction and detailed own
 
 - [ADR-0001 — Canonical TruthBounty V2 Contract Topology](docs/architecture/ADR-0001-canonical-v2-contract-topology.md)
 - [TruthBounty V2 Audit Reconciliation](docs/audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
+- [Drips Stellar Wave Operations](docs/operations/DRIPS_STELLAR_WAVE_OPERATIONS.md)
 
-The complete `PROTOCOL_V2_SPEC.md`, engineering blueprint, master backlog, and dependency graph must be published and reviewed before the remediation implementation waves are considered unfrozen.
+The complete `PROTOCOL_V2_SPEC.md`, engineering blueprint, clean-slate V2 master backlog, and dependency graph must be published and reviewed before implementation waves are considered unfrozen. Existing GitHub issues are historical records only and are not part of the V2 execution backlog.
 
 ## Repository Ownership
 
@@ -97,12 +98,13 @@ Protocol-rule changes must be documented here before implementation repositories
 
 ## Contribution Order
 
-1. Read the current protocol decisions and audit baseline.
-2. Confirm that the issue is not superseded or already covered elsewhere.
-3. Identify the canonical contract release and upstream dependencies.
-4. Implement in the owning repository.
-5. Test protocol invariants and integration behavior.
-6. Link the implementation PR to the governing document and issue.
+1. Read the current protocol decisions, audit baseline, and Wave operations policy.
+2. Work only from a newly approved clean-slate V2 issue; existing repository issues must not be reopened, modified, relabelled, or activated for V2.
+3. Confirm that the new issue is not duplicated and that all upstream dependencies are satisfied.
+4. Identify the canonical contract release and governing protocol documents.
+5. Implement in the owning repository.
+6. Test protocol invariants, security controls, and integration behavior.
+7. Link the implementation PR to the new V2 issue and its governing documents.
 
 Code existence alone does not satisfy an issue. Acceptance criteria, tests, integration, documentation, and protocol invariants must all pass.
 
@@ -111,8 +113,8 @@ Code existence alone does not satisfy an issue. Acceptance criteria, tests, inte
 - **Optimism / EVM:** canonical V2 execution and settlement environment.
 - **IPFS:** content-addressed evidence and metadata storage.
 - **World ID:** optional Sybil-resistance signal, subject to the protocol specification.
-- **Drips Network:** open-source funding and contribution coordination.
-- **Stellar:** exploratory only; it is not part of the canonical V2 EVM wallet runtime.
+- **Drips Stellar Wave:** open-source contribution and funding programme only. Participation does not change TruthBounty's runtime architecture.
+- **Stellar / Soroban:** not part of the TruthBounty V2 runtime, wallet stack, contracts, settlement, or deployment targets.
 
 ## Security
 
