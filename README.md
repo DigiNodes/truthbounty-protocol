@@ -83,8 +83,11 @@ See [`repos.md`](repos.md) for the allowed dependency direction and detailed own
 - [ADR-0001 — Canonical TruthBounty V2 Contract Topology](docs/architecture/ADR-0001-canonical-v2-contract-topology.md)
 - [TruthBounty V2 Audit Reconciliation](docs/audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
 - [Drips Stellar Wave Operations](docs/operations/DRIPS_STELLAR_WAVE_OPERATIONS.md)
+- [TruthBounty V2 Master Backlog](docs/planning/MASTER_V2_BACKLOG.md)
+- [TruthBounty V2 Issue Dependencies](docs/planning/ISSUE_DEPENDENCIES.md)
+- [V2-EPIC-SC-001 — Canonical Contract Topology and Deployment](docs/planning/epics/V2-EPIC-SC-001-canonical-contract-topology-and-deployment.md)
 
-The proposed V2 specification and engineering blueprint are now available for maintainer review. They must be accepted before the clean-slate master backlog, dependency graph, and implementation waves are unfrozen. Existing GitHub issues are historical records only and are not part of the V2 execution backlog.
+The proposed V2 specification, engineering blueprint, clean-slate master backlog, dependency graph, and first contract epic are available for maintainer review. All issue source files remain unactivated candidates until their governing documents, dependencies, scope, security requirements, tests, and complexity are approved. Existing GitHub issues are historical records only and are not part of the V2 execution backlog.
 
 ## Repository Ownership
 
