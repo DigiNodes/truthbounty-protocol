@@ -490,6 +490,15 @@ The guardian can pause but cannot independently unpause, upgrade, transfer treas
 
 ## 17. Issue Readiness
 
+Clean-slate issue identifiers are:
+
+| Prefix | Repository scope |
+|---|---|
+| `V2-SC-###` | Smart contracts, deployments, ABIs, invariants, and contract security |
+| `V2-BE-###` | API, indexer, persistence, infrastructure, and backend security |
+| `V2-FE-###` | Frontend architecture, EVM integration, behavior, testing, accessibility, and frontend security |
+| `V2-DOC-###` | Implementation-specific documentation owned by a Wave-approved repository |
+
 A new V2 issue is ready for creation only when:
 
 - its governing specification section is accepted or explicitly approved for candidate drafting;
