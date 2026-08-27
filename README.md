@@ -78,11 +78,13 @@ See [`repos.md`](repos.md) for the allowed dependency direction and detailed own
 
 ## Current V2 Governance Baseline
 
+- [TruthBounty Protocol V2 Specification](docs/v2/PROTOCOL_V2_SPEC.md)
+- [TruthBounty V2 Engineering Blueprint](docs/v2/ENGINEERING_BLUEPRINT.md)
 - [ADR-0001 — Canonical TruthBounty V2 Contract Topology](docs/architecture/ADR-0001-canonical-v2-contract-topology.md)
 - [TruthBounty V2 Audit Reconciliation](docs/audits/TRUTHBOUNTY_V2_AUDIT_RECONCILIATION.md)
 - [Drips Stellar Wave Operations](docs/operations/DRIPS_STELLAR_WAVE_OPERATIONS.md)
 
-The complete `PROTOCOL_V2_SPEC.md`, engineering blueprint, clean-slate V2 master backlog, and dependency graph must be published and reviewed before implementation waves are considered unfrozen. Existing GitHub issues are historical records only and are not part of the V2 execution backlog.
+The proposed V2 specification and engineering blueprint are now available for maintainer review. They must be accepted before the clean-slate master backlog, dependency graph, and implementation waves are unfrozen. Existing GitHub issues are historical records only and are not part of the V2 execution backlog.
 
 ## Repository Ownership
 
