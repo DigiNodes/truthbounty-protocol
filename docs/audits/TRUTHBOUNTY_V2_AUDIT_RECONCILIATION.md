@@ -1,7 +1,7 @@
 # TruthBounty V2 Audit Reconciliation
 
-**Document version:** 1.0.0  
-**Date:** 2026-08-25  
+**Document version:** 1.1.0  
+**Date:** 2026-08-26  
 **Status:** Proposed baseline  
 **Scope:** `truthbounty-protocol`, `truthbounty-contract`, `truthbounty-api`, and `truthbounty-frontend`
 
@@ -9,7 +9,9 @@
 
 This document reconciles the TruthBounty V2 architectural audit with the implementation and GitHub issue state visible on 2026-08-25.
 
-It establishes the remediation baseline that must be reviewed before implementation work resumes. It does not declare the current implementation production-ready, reopen issues automatically, or replace the full protocol specification.
+It establishes the remediation baseline that must be reviewed before implementation work resumes. It does not declare the current implementation production-ready or replace the full protocol specification.
+
+Existing GitHub issues are historical records only. They will not be reopened, modified, relabelled, superseded in place, or activated for V2. Every implementation task will be authored as a new clean-slate V2 issue.
 
 ## 2. Non-Negotiable V2 Rule
 
@@ -37,54 +39,59 @@ The audit also relied on local planning documents that were not present on `trut
 | AR-002 | `truthbounty-contract` | `Rewards.ts` passes one constructor argument to `TruthBountyClaims`, whose constructor requires the token address and initial administrator. | High | Do not repair the production path if the legacy module is removed; retain only if explicitly required for migration or tests. |
 | AR-003 | `truthbounty-contract` | `TruthBountyClaims` permits treasury-controlled push settlement and recovery of the bounty token through `rescueTokens`. | Blocker | Deprecate from the V2 production deployment and prohibit protocol funds from being routed through it. |
 | AR-004 | `truthbounty-contract` | `TruthBountyWeighted` allocates only a configured share of slashed stake to rewards and has no explicit treasury or burn destination for the remainder. | High | Implement deterministic treasury/burn accounting in the canonical modular contracts. |
-| AR-005 | `truthbounty-api` | SIWE challenge generation produces EIP-4361 messages, while login validates only the legacy `Sign in to TruthBounty: <nonce>` template. | Blocker | Reopen or supersede BE-001 and implement full SIWE validation. |
+| AR-005 | `truthbounty-api` | SIWE challenge generation produces EIP-4361 messages, while login validates only the legacy `Sign in to TruthBounty: <nonce>` template. | Blocker | Create a new V2 backend issue for full SIWE validation. |
 | AR-006 | `truthbounty-api` | Claim creation and claim resolution still write authoritative lifecycle state directly to the database. | Blocker | Convert mutation paths into transaction-observation and indexed-query workflows. |
-| AR-007 | `truthbounty-api` | The event indexer stores raw logs but does not project finalized events into claim, vote, stake, reward, dispute, and reputation read models. | Blocker | Reopen or supersede BE-003 and implement deterministic projection handlers plus replay. |
-| AR-008 | `truthbounty-api` | TypeORM and Prisma use separate SQLite databases. | High | Complete BE-002 using one PostgreSQL architecture and an approved ORM ownership strategy. |
+| AR-007 | `truthbounty-api` | The event indexer stores raw logs but does not project finalized events into claim, vote, stake, reward, dispute, and reputation read models. | Blocker | Create new V2 backend issues for deterministic projections, replay, and reorganization handling. |
+| AR-008 | `truthbounty-api` | TypeORM and Prisma use separate SQLite databases. | High | Create a new V2 backend issue for one PostgreSQL architecture and an approved ORM ownership strategy. |
 | AR-009 | `truthbounty-frontend` | Mock wallet providers and synthetic transaction receipts remain in application code. | Blocker | Replace application usage with real Wagmi/Viem providers while retaining isolated test mocks only. |
 | AR-010 | `truthbounty-frontend` | Rewards use a dummy mainnet address and an ABI that calls `claimRewards()` instead of the implemented settlement-reward interface. | Blocker | Consume versioned ABI/address exports from the canonical deployment. |
 | AR-011 | `truthbounty-frontend` | `@stellar/freighter-api` is used in the EVM account hook. | High | Remove the Stellar wallet path from the Optimism/EVM application runtime. |
 
 These findings are pre-production blockers. They do not, by themselves, prove that a funded production deployment has been exploited.
 
-## 5. GitHub Planning-State Drift
+## 5. Legacy Issue Inventory and Clean-Slate Decision
 
-### 5.1 Smart contracts
+### 5.1 Historical inventory
 
-- GitHub contains 35 numbered issues: `SC-001` through `SC-035`.
-- 28 were closed and 7 were open at verification time.
-- The audit and local backlog references mention `SC-036`, but no `SC-036` GitHub issue existed.
-- `SC-001` and `SC-026` were closed even though the repository still lacked a canonical integrated V2 deployment.
-- `SC-012` remained open and is the appropriate upstream scope for treasury routing and accounting, subject to ADR-0001.
+At the 2026-08-25 verification point:
 
-### 5.2 Backend
+- the contract repository contained legacy `SC-001` through `SC-035` issues;
+- the API repository contained legacy `BE-001` through `BE-040` issues;
+- no consistent `FE-###` frontend series existed;
+- issue closure did not reliably demonstrate that V2 acceptance criteria were satisfied;
+- labels included both `Stellar Wave` and lowercase `stellar-wave`.
 
-- GitHub contains 40 numbered issues: `BE-001` through `BE-040`.
-- 30 were closed and 10 were open at verification time.
-- `BE-001`, `BE-003`, `BE-006`, and `BE-007` were closed despite current code failing their V2 architectural acceptance criteria.
-- Multiple backend issues overlap in AI, notifications, jobs, health checks, audit logging, search, and feature flags. They require deduplication before additional issue generation.
+This inventory remains useful as audit evidence, but it is not the V2 implementation backlog.
 
-### 5.3 Frontend
+### 5.2 Clean-slate issue policy
 
-- No `FE-###` issue series existed at verification time.
-- Frontend issue generation must wait until the canonical contracts, event schemas, ABIs, addresses, and chain configuration are approved.
+The V2 programme will:
 
-### 5.4 Labels
+1. leave every existing issue unchanged as historical evidence;
+2. not reopen, edit, relabel, repurpose, or activate an existing issue;
+3. create fully rewritten, immediately assignable issues from the accepted V2 specification and current repository state;
+4. use fresh identifiers:
+   - `V2-SC-###` for smart-contract work;
+   - `V2-BE-###` for API, indexer, and backend work;
+   - `V2-FE-###` for frontend work;
+   - `V2-DOC-###` for implementation-specific documentation in a Wave-approved repository;
+5. link new issues to audit finding IDs, protocol sections, dependencies, and security requirements rather than treating old issue numbers as authority;
+6. complete and review one genuine engineering epic at a time before publishing its contributor-ready tasks.
 
-GitHub currently contains both `Stellar Wave` and `stellar-wave`. The lowercase `stellar-wave` label is canonical for generated issue files. Label sections must use a Markdown list:
+Existing code may be retained when it passes the new issue's acceptance criteria and security checks. Existing issue status does not create any presumption of completeness.
 
-```markdown
-# 🏷 Labels
+### 5.3 Wave labels
 
-- backend
-- architecture
-- protocol-critical
-- web3
-- complexity-high
-- stellar-wave
+Internal preparation labels are:
 
----
-```
+- `wave-candidate`;
+- `wave-reviewed`;
+- `wave-ready`;
+- `wave-blocked`.
+
+The exact external activation label is `Stellar Wave`. It must not appear on generated candidates and may be applied only as the final action of a maintainer-controlled publication step.
+
+The lowercase `stellar-wave` label is not a publication label and must not be used for the new backlog. Its eventual retirement is a separate maintenance action that must not modify the historical issues.
 
 ## 6. Canonical Repository Boundaries
 
@@ -111,8 +118,9 @@ No reverse dependency may grant an off-chain component authority over protocol s
 1. Accept ADR-0001 or replace it with an explicitly approved alternative.
 2. Publish the complete V2 protocol specification.
 3. Publish the engineering blueprint, master backlog, and dependency graph.
-4. Map every audit finding to an existing issue, a reopened issue, or one new corrective issue.
-5. Mark superseded V1 code paths and documentation clearly.
+4. Map every audit finding to one or more newly authored clean-slate V2 issues.
+5. Publish the new dependency graph and issue identifiers without changing historical issues.
+6. Mark superseded V1 code paths and documentation clearly.
 
 ### Wave 1 — Emergency Hardening
 
@@ -135,16 +143,22 @@ No reverse dependency may grant an off-chain component authority over protocol s
 3. Bind claim, verification, settlement, dispute, and reward flows to versioned contract exports.
 4. Implement the transaction lifecycle: review, signature, submission, confirmation, indexing, and UI refresh.
 
-## 8. Issue Reconciliation Rules
+## 8. New V2 Issue Authoring Rules
 
-For each affected issue:
+Every new V2 issue must:
 
-1. Compare the implemented code against every acceptance criterion.
-2. Reopen the issue when its original scope remains valid and incomplete.
-3. Create a corrective issue only when the original scope is obsolete, materially changed, or too broad.
-4. Link the corrective issue to the superseded issue and the governing protocol document.
-5. Do not close an issue solely because code exists; tests, integration, documentation, and protocol invariants must also pass.
-6. Do not generate frontend implementation issues against dummy addresses or provisional ABIs.
+1. describe one independently meaningful engineering outcome;
+2. be fully written, mature, and immediately assignable, with no placeholders or skeleton sections;
+3. identify its epic, governing protocol section, audit findings, repository owner, and upstream dependencies;
+4. define objective acceptance criteria, required tests, security checks, deliverables, and explicit non-goals;
+5. fit within a Wave contribution window or be decomposed along genuine engineering boundaries;
+6. avoid duplicate, overlapping, obsolete, or architecture-blocked work;
+7. avoid frontend visual implementation against unapproved designs, provisional ABIs, dummy addresses, or unfrozen chain configuration;
+8. include only internal preparation labels during drafting and review;
+9. omit `Stellar Wave` until the final maintainer-controlled publication action;
+10. never be split merely to inflate issue or contribution counts.
+
+The new backlog is generated from current code, accepted architecture, and unresolved audit findings. Historical issue titles, bodies, labels, assignments, and completion states are not copied forward as authoritative scope.
 
 ## 9. Exit Criteria for the Reconciliation Phase
 
@@ -152,9 +166,9 @@ This phase is complete only when:
 
 - ADR-0001 has been accepted or superseded;
 - the V2 specification and engineering blueprint are available on GitHub;
-- every audit finding has an owner and issue disposition;
-- issue counts and missing identifiers are reconciled;
-- duplicated labels are normalized;
+- every audit finding has an owner and one or more new V2 issue mappings;
+- the clean-slate identifiers, dependencies, and epic boundaries are published;
+- Wave preparation labels and the protected `Stellar Wave` activation gate are documented;
 - canonical contracts, deployment outputs, event schemas, and repository boundaries are unambiguous;
 - no implementation wave depends on an unpublished local document.
 
