@@ -1,8 +1,8 @@
 # TruthBounty Protocol V2 Specification
 
-**Version:** 2.0.0-proposed  
-**Date:** 2026-08-27  
-**Status:** Proposed  
+**Version:** 2.0.0-rc.1  
+**Frozen:** 2026-09-07  
+**Status:** Frozen for implementation  
 **Decision owners:** TruthBounty maintainers  
 **Runtime:** Optimism / EVM  
 **Normative language:** “MUST”, “MUST NOT”, “SHOULD”, and “MAY” are requirements keywords.
