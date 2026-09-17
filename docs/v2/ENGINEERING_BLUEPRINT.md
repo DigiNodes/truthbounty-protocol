@@ -1,8 +1,8 @@
 # TruthBounty V2 Engineering Blueprint
 
-**Version:** 1.0.0-proposed  
-**Date:** 2026-08-27  
-**Status:** Proposed  
+**Version:** 1.1.0-rc.1  
+**Frozen:** 2026-09-07  
+**Status:** Frozen for implementation  
 **Governing specification:** [TruthBounty Protocol V2 Specification](PROTOCOL_V2_SPEC.md)
 
 ## 1. Purpose
@@ -24,7 +24,7 @@ TruthBounty V2 engineering follows these rules:
 7. new work uses clean-slate V2 identifiers and complete issue contracts;
 8. one engineering epic is reviewed at a time;
 9. no candidate receives `Stellar Wave` automatically;
-10. UI/UX implementation remains suspended until maintainers approve the redesigned interfaces.
+10. UI/UX implementation follows the approved UX authority, information architecture, design tokens, and transaction-state specifications.
 
 ## 3. Repository Responsibilities
 
