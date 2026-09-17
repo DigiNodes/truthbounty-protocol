@@ -1,0 +1,94 @@
+schemaVersion: 1
+protocolVersion: v2
+activation:
+  label: "Stellar Wave"
+  candidateLabel: wave-candidate
+  assignmentsPaused: true
+  automaticAssignment: false
+  automaticApproval: false
+  automaticMerge: false
+points:
+  low: 100
+  medium: 150
+  high: 200
+repositories:
+  - name: DigiNodes/truthbounty-contract
+    prefix: V2-SC
+    range:
+      first: 1
+      last: 150
+    candidateExpansion:
+      first: 91
+      last: 150
+    authority: protocol-mutation
+    requiredGateFamilies:
+      - lint
+      - compile
+      - unit
+      - fuzz
+      - invariant
+      - property
+      - gas
+      - security
+      - artifact-drift
+  - name: DigiNodes/truthbounty-api
+    prefix: V2-BE
+    range:
+      first: 1
+      last: 150
+    candidateExpansion:
+      first: 91
+      last: 150
+    authority: projection-only
+    requiredGateFamilies:
+      - lint
+      - typecheck
+      - build
+      - unit
+      - postgres-integration
+      - migration
+      - indexer-reorg
+      - security
+      - container
+      - artifact-drift
+  - name: DigiNodes/truthbounty-frontend
+    prefix: V2-FE
+    range:
+      first: 1
+      last: 150
+    candidateExpansion:
+      first: 91
+      last: 150
+    authority: user-client
+    requiredGateFamilies:
+      - lint
+      - typecheck
+      - unit
+      - build
+      - accessibility
+      - wallet-integration
+      - e2e
+      - security
+      - artifact-drift
+securitySensitive:
+  - contracts
+  - authentication
+  - settlement
+  - rewards
+  - treasury
+  - governance
+  - deployment
+  - migration
+  - indexer
+  - reorg
+  - wallet
+  - signature
+  - ci-workflow
+  - protocol-specification
+mergePolicy:
+  exactHeadRequired: true
+  dismissStaleApprovals: true
+  conversationsResolved: true
+  humanApprovalRequired: true
+  securityHumanApprovalRequired: true
+  bypassProtection: false

@@ -1,0 +1,73 @@
+schemaVersion: 1
+protocol:
+  name: TruthBounty
+  version: v2
+  authorityRepository: DigiNodes/truthbounty-protocol
+  canonicalState: optimism-evm-contracts
+chain:
+  family: evm
+  networkFamily: optimism
+  alternateRuntimeAllowed: false
+boundaries:
+  contracts:
+    authority:
+      - claims
+      - verification
+      - staking
+      - disputes
+      - settlement
+      - rewards
+      - treasury
+      - governance
+      - authoritative-reputation-commitments
+    exports:
+      - versioned-abi
+      - deployment-address-manifest
+      - versioned-event-schema
+  api:
+    authority: projection-only
+    persistence: typeorm-postgresql
+    consumes:
+      - contract-address-manifest
+      - versioned-event-schema
+    provides:
+      - rest
+      - websocket
+    forbidden:
+      - authoritative-protocol-mutation
+      - independent-settlement
+      - independent-reward-allocation
+      - prisma
+      - second-orm
+  frontend:
+    authority: user-client
+    consumes:
+      - versioned-abi
+      - deployment-address-manifest
+      - api-rest
+      - api-websocket
+    forbidden:
+      - fabricated-transactions
+      - fabricated-protocol-state
+      - production-mocks
+      - alternate-chain-wallet-runtime
+forbiddenRuntime:
+  - stellar
+  - soroban
+  - freighter
+dependencyGraph:
+  - from: truthbounty-protocol
+    to: truthbounty-contract
+  - from: truthbounty-protocol
+    to: truthbounty-api
+  - from: truthbounty-protocol
+    to: truthbounty-frontend
+  - from: truthbounty-contract
+    to: truthbounty-api
+    artifact: address-manifest-and-events
+  - from: truthbounty-contract
+    to: truthbounty-frontend
+    artifact: abi-and-address-manifest
+  - from: truthbounty-api
+    to: truthbounty-frontend
+    artifact: rest-and-websocket
