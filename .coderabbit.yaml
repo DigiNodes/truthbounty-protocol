@@ -1,0 +1,15 @@
+language: en-US
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  path_instructions:
+    - path: "governance/**"
+      instructions: "Check canonical authority, dependency ordering, activation safety, exact-head human approval requirements, and compatibility with Optimism/EVM-only V2. Automated review is advisory."
+    - path: "docs/**"
+      instructions: "Check that documentation preserves contract authority, API projection-only behavior, and truthful frontend behavior."
+chat:
+  auto_reply: true
