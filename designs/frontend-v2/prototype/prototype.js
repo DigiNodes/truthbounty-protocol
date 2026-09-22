@@ -10,12 +10,16 @@ function openMenu() {
   sidebar.classList.add("open");
   scrim.classList.add("open");
   menuButton.setAttribute("aria-expanded", "true");
+  document.querySelector("#close-menu").focus();
 }
 
-function closeMenu() {
+function closeMenu({ restoreFocus = true } = {}) {
   sidebar.classList.remove("open");
   scrim.classList.remove("open");
   menuButton.setAttribute("aria-expanded", "false");
+  if (restoreFocus && window.matchMedia("(max-width: 760px)").matches) {
+    menuButton.focus();
+  }
 }
 
 function showToast(message) {
@@ -49,7 +53,7 @@ function showScreen(name) {
   }
   document.querySelector("main").scrollTo({ top: 0, behavior: "smooth" });
   document.querySelector("#main").focus({ preventScroll: true });
-  closeMenu();
+  closeMenu({ restoreFocus: false });
 }
 
 document.querySelectorAll("[data-screen]").forEach(control => {
@@ -66,7 +70,25 @@ document.querySelector("#theme-button").addEventListener("click", () => {
   showToast(`${dark ? "Light" : "Dark"} theme enabled`);
 });
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape" && sidebar.classList.contains("open")) {
+    closeMenu();
+    return;
+  }
+
+  if (event.key === "Tab" && sidebar.classList.contains("open")) {
+    const focusable = [...sidebar.querySelectorAll("button:not([disabled]), a[href], select:not([disabled]), [tabindex]:not([tabindex='-1'])")]
+      .filter(element => !element.hidden);
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
 });
 
 setRole("claimant", false);
