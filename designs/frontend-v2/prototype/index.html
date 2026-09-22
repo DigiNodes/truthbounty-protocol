@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>TruthBounty V2 — High-fidelity authority prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="prototype-banner" role="note">
+    <span>Design authority prototype</span>
+    <span class="banner-note">Illustrative data — never protocol truth</span>
+  </div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true">T</div>
+        <div><strong>TruthBounty</strong><span>Evidence before certainty</span></div>
+        <button class="icon-button close-menu" id="close-menu" aria-label="Close navigation">×</button>
+      </div>
+
+      <nav class="nav-groups">
+        <div class="nav-group">
+          <p class="nav-label">Public</p>
+          <button class="nav-item active" data-screen="claimant"><span class="nav-icon">⌂</span>Overview</button>
+          <button class="nav-item" data-screen="explore"><span class="nav-icon">◎</span>Explore claims</button>
+        </div>
+        <div class="nav-group">
+          <p class="nav-label">My activity</p>
+          <button class="nav-item" data-screen="my-claims"><span class="nav-icon">▤</span>My claims <span class="nav-count">3</span></button>
+          <button class="nav-item" data-screen="rewards"><span class="nav-icon">◇</span>Rewards</button>
+        </div>
+        <div class="nav-group" data-role-group="verifier">
+          <p class="nav-label">Verifier</p>
+          <button class="nav-item" data-screen="verifier"><span class="nav-icon">✓</span>Verification queue <span class="nav-count">8</span></button>
+          <button class="nav-item" data-screen="verification-workspace"><span class="nav-icon">◫</span>My verifications</button>
+        </div>
+        <div class="nav-group" data-role-group="admin">
+          <p class="nav-label">Administration</p>
+          <button class="nav-item" data-screen="admin"><span class="nav-icon">◈</span>System overview</button>
+          <button class="nav-item" data-screen="operations"><span class="nav-icon">⚙</span>Operations <span class="nav-alert">2</span></button>
+          <button class="nav-item" data-screen="audit"><span class="nav-icon">≡</span>Audit log</button>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="nav-item" data-screen="help"><span class="nav-icon">?</span>How it works</button>
+        <button class="nav-item" data-screen="settings"><span class="nav-icon">⚙</span>Settings</button>
+        <div class="network-card">
+          <span class="status-dot success"></span>
+          <div><strong>Optimism Sepolia</strong><span>RPC and indexer healthy</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="shell-main">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <div class="mobile-brand"><span class="brand-mark small">T</span><strong>TruthBounty</strong></div>
+        <div class="context-switcher">
+          <span>Active context</span>
+          <select id="role-select" aria-label="Active role context">
+            <option value="claimant">Claimant</option>
+            <option value="verifier">Verifier</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </div>
+        <div class="topbar-actions">
+          <button class="transaction-button" data-screen="transactions"><span class="pulse-dot"></span><span class="hide-small">1 pending</span></button>
+          <button class="icon-button" id="theme-button" aria-label="Toggle colour theme">◐</button>
+          <button class="wallet-button"><span class="wallet-status"></span>0x71B4…92E8</button>
+        </div>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <section class="screen active" data-screen-panel="claimant">
+          <div class="page-heading">
+            <div><p class="eyebrow">Claimant workspace</p><h1>Good evening, Ahmed</h1><p>Review what needs attention across your claims and rewards.</p></div>
+            <button class="primary-button" data-screen="create-claim"><span>＋</span>Create claim</button>
+          </div>
+
+          <div class="notice warning"><span class="notice-icon">!</span><div><strong>Action required on Claim TB-2048</strong><p>Add the missing publication date before the evidence review deadline in 18 hours.</p></div><button data-screen="claim-detail">Review claim →</button></div>
+
+          <div class="metrics-grid">
+            <article class="metric-card"><div class="metric-top"><span>Active claims</span><span class="metric-icon indigo">▤</span></div><strong>3</strong><p>1 needs attention</p></article>
+            <article class="metric-card"><div class="metric-top"><span>In verification</span><span class="metric-icon blue">✓</span></div><strong>2</strong><p>Next deadline: 18h</p></article>
+            <article class="metric-card"><div class="metric-top"><span>Claimable rewards</span><span class="metric-icon green">◇</span></div><strong>42.80 USDC</strong><p>Canonical at block 14,282,901</p></article>
+            <article class="metric-card"><div class="metric-top"><span>Reputation</span><span class="metric-icon amber">★</span></div><strong>742</strong><p>Established · updated 2m ago</p></article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel span-2">
+              <div class="panel-header"><div><h2>Recent claims</h2><p>Phase, deadline and your next permitted action</p></div><button class="text-button" data-screen="my-claims">View all</button></div>
+              <div class="claim-list">
+                <button class="claim-row" data-screen="claim-detail"><span class="category-tag">Climate</span><span class="claim-copy"><strong>City air-quality monitors recorded a 19% annual improvement</strong><small>TB-2048 · Evidence review ends in 18h</small></span><span class="status-badge warning">Needs evidence</span><span class="row-action">→</span></button>
+                <button class="claim-row" data-screen="claim-detail"><span class="category-tag health">Health</span><span class="claim-copy"><strong>New malaria vaccine programme reached 12 districts</strong><small>TB-2031 · Verification closes in 2d 4h</small></span><span class="status-badge info">Verifying</span><span class="row-action">→</span></button>
+                <button class="claim-row" data-screen="claim-detail"><span class="category-tag civic">Civic</span><span class="claim-copy"><strong>Public procurement notice was published before award</strong><small>TB-1994 · Finalized at block 14,270,112</small></span><span class="status-badge success">Finalized</span><span class="row-action">→</span></button>
+              </div>
+            </section>
+            <aside class="panel">
+              <div class="panel-header"><div><h2>Protocol activity</h2><p>Personal timeline</p></div></div>
+              <ol class="timeline">
+                <li><span class="timeline-mark success">✓</span><div><strong>Reward became claimable</strong><p>12.4 USDC · TB-1994</p><small>16 minutes ago</small></div></li>
+                <li><span class="timeline-mark info">↗</span><div><strong>Claim entered verification</strong><p>TB-2031 · 24 verifiers eligible</p><small>2 hours ago</small></div></li>
+                <li><span class="timeline-mark warning">!</span><div><strong>Evidence metadata requested</strong><p>TB-2048 · Publication date</p><small>5 hours ago</small></div></li>
+              </ol>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="verifier">
+          <div class="page-heading"><div><p class="eyebrow">Verifier workspace</p><h1>Verification queue</h1><p>Claims you are currently eligible to review, ordered by deadline.</p></div><span class="eligibility-pill"><span class="status-dot success"></span>Eligible · Tier 3</span></div>
+          <div class="notice info"><span class="notice-icon">i</span><div><strong>Protected evidence remains sealed</strong><p>Evidence and other verifier choices are revealed only when the canonical phase permits it.</p></div></div>
+          <div class="content-grid queue-layout">
+            <section class="panel span-2">
+              <div class="panel-header"><div><h2>Available work</h2><p>8 eligible claims · projection updated 48s ago</p></div><button class="filter-button">Filter ▾</button></div>
+              <div class="queue-list">
+                <article class="queue-card"><div class="queue-main"><div class="queue-meta"><span class="category-tag civic">Civic</span><span>TB-2072</span><span>Ends in 3h 24m</span></div><h3>Regional education allocation increased by 8% in the current budget</h3><p>3 evidence items · 1 primary source · 8.6K USDC currently staked</p></div><div class="queue-side"><div class="deadline urgent"><small>Commit deadline</small><strong>3h 24m</strong></div><button class="primary-button compact" data-screen="verification-workspace">Open workspace</button></div></article>
+                <article class="queue-card"><div class="queue-main"><div class="queue-meta"><span class="category-tag health">Health</span><span>TB-2065</span><span>Ends in 11h</span></div><h3>Teaching hospital added two operational diagnostic units this quarter</h3><p>5 evidence items · 2 primary sources · 5.2K USDC currently staked</p></div><div class="queue-side"><div class="deadline"><small>Commit deadline</small><strong>11h 08m</strong></div><button class="secondary-button compact" data-screen="verification-workspace">Review evidence</button></div></article>
+                <article class="queue-card"><div class="queue-main"><div class="queue-meta"><span class="category-tag">Climate</span><span>TB-2058</span><span>Ends in 1d</span></div><h3>Solar micro-grid supplied continuous power to four health centres</h3><p>4 evidence items · 1 primary source · 3.8K USDC currently staked</p></div><div class="queue-side"><div class="deadline"><small>Commit deadline</small><strong>1d 02h</strong></div><button class="secondary-button compact" data-screen="verification-workspace">Review evidence</button></div></article>
+              </div>
+            </section>
+            <aside class="stack">
+              <section class="panel reputation-card"><p class="eyebrow">Verifier reputation</p><div class="reputation-score"><strong>742</strong><span>Established</span></div><div class="progress"><span style="width:74%"></span></div><p>58 points to Advanced eligibility</p></section>
+              <section class="panel"><div class="panel-header"><div><h2>Current commitments</h2><p>Local and canonical state</p></div></div><div class="mini-stat"><span>Awaiting reveal</span><strong>2</strong></div><div class="mini-stat"><span>Pending confirmation</span><strong>1</strong></div><div class="mini-stat"><span>Completed this week</span><strong>7</strong></div></section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="admin">
+          <div class="page-heading"><div><p class="eyebrow">Authorized operations</p><h1>System overview</h1><p>Health, bounded operational queues and immutable audit activity.</p></div><span class="status-badge success large">All core systems operational</span></div>
+          <div class="admin-health">
+            <article class="health-card"><div><span class="status-dot success"></span><strong>Indexer</strong></div><span>12s behind head</span><small>Block 14,282,901</small></article>
+            <article class="health-card"><div><span class="status-dot success"></span><strong>API</strong></div><span>99.98% availability</span><small>p95 182 ms</small></article>
+            <article class="health-card"><div><span class="status-dot warning"></span><strong>Job queue</strong></div><span>2 retries pending</span><small>Oldest: 7 minutes</small></article>
+            <article class="health-card"><div><span class="status-dot success"></span><strong>Optimism RPC</strong></div><span>Healthy</span><small>Finalized 42s ago</small></article>
+          </div>
+          <div class="content-grid">
+            <section class="panel span-2"><div class="panel-header"><div><h2>Operations requiring attention</h2><p>No authority to override outcomes or move user funds</p></div><button class="text-button" data-screen="operations">Open queues</button></div>
+              <div class="operations-table" role="table" aria-label="Operations queue">
+                <div class="table-row table-head" role="row"><span>Queue</span><span>State</span><span>Age</span><span>Authority</span></div>
+                <button class="table-row" role="row"><span><strong>Projection retry</strong><small>Claim TB-2071</small></span><span><span class="status-badge warning">Retryable</span></span><span>7m</span><span>API operator</span></button>
+                <button class="table-row" role="row"><span><strong>Evidence scan review</strong><small>Artifact EV-882</small></span><span><span class="status-badge info">Review</span></span><span>21m</span><span>Content moderator</span></button>
+                <button class="table-row" role="row"><span><strong>RPC reconciliation</strong><small>Block range 14,282,810–844</small></span><span><span class="status-badge neutral">Running</span></span><span>4m</span><span>Automated</span></button>
+              </div>
+            </section>
+            <aside class="panel"><div class="panel-header"><div><h2>Recent audit events</h2><p>Immutable references</p></div></div><ol class="timeline"><li><span class="timeline-mark info">↻</span><div><strong>Projection retry approved</strong><p>Operator 0x8F…7A · JOB-771</p><small>8 minutes ago</small></div></li><li><span class="timeline-mark success">✓</span><div><strong>Configuration proposal executed</strong><p>Timelock GOV-182</p><small>2 hours ago</small></div></li><li><span class="timeline-mark neutral">○</span><div><strong>Evidence record quarantined</strong><p>Policy reference MOD-18</p><small>5 hours ago</small></div></li></ol></aside>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="claim-detail">
+          <button class="back-button" data-screen="claimant">← Back to dashboard</button>
+          <div class="claim-hero"><div class="claim-hero-main"><div class="queue-meta"><span class="category-tag">Climate</span><span class="status-badge warning">Evidence required</span><span>TB-2048</span></div><h1>City air-quality monitors recorded a 19% annual improvement</h1><p>Submitted by 0x71B4…92E8 · Optimism Sepolia · Projection updated 42 seconds ago</p></div><div class="confidence-card"><span>Current confidence</span><strong>—</strong><p>Unavailable until sufficient verification evidence exists.</p></div></div>
+          <div class="notice warning"><span class="notice-icon">!</span><div><strong>Add publication date within 18 hours</strong><p>The primary evidence is missing required provenance metadata. Your claim remains active; no result has been inferred.</p></div><button>Add metadata</button></div>
+          <div class="detail-grid"><section class="panel"><div class="panel-header"><div><h2>Evidence</h2><p>2 artifacts · integrity checked</p></div><button class="secondary-button compact">＋ Add evidence</button></div><div class="evidence-card"><span class="file-icon">PDF</span><div><strong>Municipal Air Quality Annual Report</strong><p>Primary source · SHA-256 8c4a…d91f</p><small>Publication date missing</small></div><span class="status-badge warning">Action needed</span></div><div class="evidence-card"><span class="file-icon web">WEB</span><div><strong>Open monitoring dataset</strong><p>Supporting data · IPFS bafy…4rt</p><small>Retrieved 21 Sep 2026</small></div><span class="status-badge success">Verified</span></div></section><aside class="panel"><div class="panel-header"><div><h2>Protocol timeline</h2><p>Canonical and projection events</p></div></div><ol class="timeline protocol"><li class="complete"><span></span><div><strong>Claim submitted</strong><p>Transaction 0x8e…42 · confirmed</p><small>21 Sep · 18:42</small></div></li><li class="current"><span></span><div><strong>Evidence review</strong><p>Awaiting metadata correction</p><small>Ends in 18h</small></div></li><li><span></span><div><strong>Verification</strong><p>Not started</p></div></li><li><span></span><div><strong>Provisional outcome</strong><p>Unavailable</p></div></li><li><span></span><div><strong>Final settlement</strong><p>Unavailable</p></div></li></ol></aside></div>
+        </section>
+
+        <section class="screen" data-screen-panel="create-claim">
+          <button class="back-button" data-screen="claimant">← Cancel and return</button>
+          <div class="wizard-heading"><div><p class="eyebrow">Create claim</p><h1>Submit evidence for verification</h1><p>Your draft is stored locally until you authorize a protocol transaction.</p></div><span>Step <strong>2</strong> of 5</span></div>
+          <ol class="stepper"><li class="complete"><span>✓</span><strong>Claim</strong></li><li class="active"><span>2</span><strong>Evidence</strong></li><li><span>3</span><strong>Funding</strong></li><li><span>4</span><strong>Review</strong></li><li><span>5</span><strong>Authorize</strong></li></ol>
+          <div class="wizard-layout"><section class="panel form-panel"><div class="panel-header"><div><h2>Evidence and provenance</h2><p>Add sources that let independent verifiers assess the claim.</p></div></div><label class="field"><span>Primary source URL</span><input value="https://example.gov/reports/air-quality-2026.pdf" /><small>HTTPS, IPFS and approved content-addressed schemes only.</small></label><div class="field-grid"><label class="field"><span>Publisher</span><input value="Municipal Environment Office" /></label><label class="field"><span>Publication date</span><input type="date" /></label></div><label class="field"><span>Evidence description</span><textarea rows="4">Annual report containing calibrated station readings and the year-on-year methodology.</textarea></label><div class="upload-zone"><span class="upload-icon">⇧</span><strong>Add supporting artifact</strong><p>PDF, CSV, JSON or image · maximum 10 MB</p><button class="secondary-button compact">Choose file</button></div><div class="form-actions"><button class="secondary-button">Back</button><button class="primary-button">Save and continue</button></div></section><aside class="panel guidance"><h2>Before you continue</h2><ul class="check-list"><li><span>✓</span>The source directly supports the exact claim.</li><li><span>✓</span>The publisher and publication date are accurate.</li><li><span>✓</span>No private or sensitive information is exposed.</li><li><span>✓</span>The content can be independently retrieved.</li></ul><div class="risk-note"><strong>Protocol boundary</strong><p>This step saves a local draft. Nothing is submitted on-chain until the final authorization step.</p></div></aside></div>
+        </section>
+
+        <section class="screen placeholder-screen" data-screen-panel="placeholder"><div class="empty-illustration">◇</div><p class="eyebrow">Prototype boundary</p><h1 id="placeholder-title">Screen documented, not prototyped</h1><p>This interaction is intentionally represented as a boundary. Its contributor implementation must follow the approved route and state contracts.</p><button class="primary-button" data-screen="claimant">Return to overview</button></section>
+      </main>
+      <div class="toast" id="toast" role="status" aria-live="polite">Context updated</div>
+    </div>
+  </div>
+  <div class="scrim" id="scrim"></div>
+  <script src="prototype.js"></script>
+</body>
+</html>
