@@ -29,7 +29,7 @@ Additional requirements:
 
 ## Gate C — UX authority approved
 
-**Status:** Approval candidate. The semantic and visual evidence is complete, but Gate C is not effective until this exact approval record receives an independent human `APPROVED` review and is merged.
+**Status:** Not effective. Approval-record PR [#13](https://github.com/DigiNodes/truthbounty-protocol/pull/13) merged at exact head `b55c8609fa56db538a18ee51c08b82045af6a889`, but GitHub records no submitted pull-request review. Under the approval rule below, merge alone does not satisfy Gate C. A replacement approval record must receive an independent human `APPROVED` review before merge.
 
 **Evidence baseline (2026-10-05):**
 
@@ -49,6 +49,8 @@ Additional requirements:
 - [x] Contributor evidence issues reference these artifacts and do not invent product rules.
 
 Gate C approves semantics and design authority. It does not assert that the current frontend conforms, that privileged release-role mappings exist, or that Gates A/B are satisfied. Missing release-manifest authority remains a fail-closed implementation boundary.
+
+**Current audit:** [Post-Wave-9 Readiness Audit — 2026-10-05](../audits/POST_WAVE_9_READINESS_AUDIT_2026-10-05.md).
 
 ## Gate D — Controlled activation
 
