@@ -1,4 +1,15 @@
-const screens = new Set(["claimant", "verifier", "admin", "claim-detail", "create-claim"]);
+const screens = new Set([
+  "public-home", "explore", "claimant", "my-claims", "claim-detail", "create-claim",
+  "verifier", "verification-workspace", "disputes", "rewards", "transactions",
+  "admin", "operations", "governance", "guardian", "audit", "settings", "status", "help"
+]);
+const roleLanding = {
+  claimant: "claimant",
+  verifier: "verifier",
+  operations: "admin",
+  governance: "governance",
+  guardian: "guardian"
+};
 const roleSelect = document.querySelector("#role-select");
 const sidebar = document.querySelector("#sidebar");
 const scrim = document.querySelector("#scrim");
@@ -32,10 +43,11 @@ function showToast(message) {
 function setRole(role, navigate = true) {
   roleSelect.value = role;
   document.querySelectorAll("[data-role-group]").forEach(group => {
-    const visible = role === "admin" || group.dataset.roleGroup === role;
+    const visible = group.dataset.roleGroup === role ||
+      (group.dataset.roleGroup === "privileged" && ["operations", "governance", "guardian"].includes(role));
     group.hidden = !visible;
   });
-  if (navigate) showScreen(role);
+  if (navigate) showScreen(roleLanding[role] || "public-home");
   showToast(`${role[0].toUpperCase()}${role.slice(1)} context selected`);
 }
 
