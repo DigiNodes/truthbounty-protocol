@@ -18,25 +18,29 @@ For each implementation repository:
 - [ ] Unit/integration tests.
 - [ ] Production build.
 - [ ] Repository-specific security checks.
-- [ ] No high/critical runtime vulnerability without explicit owner, rationale, and deadline.
+- [ ] No high/critical runtime vulnerability without explicit owner, rationale and deadline.
 - [ ] No concealed skip or unconditional-success path.
 
 Additional requirements:
 
 - API: container smoke build and migration/drift verification.
-- Contract: compile, Foundry/Hardhat tests, gas, fuzz/invariants, static analysis, deployment dry run.
-- Frontend: accessibility, E2E, production mock guard, canonical artifact drift check.
+- Contract: compile, Foundry/Hardhat tests, gas, fuzz/invariants, static analysis and deployment dry run.
+- Frontend: accessibility, E2E, production mock guard and canonical artifact drift check.
 
 ## Gate C — UX authority approved
 
-- [ ] Role/capability matrix.
-- [ ] Sitemap and route contract.
-- [ ] Golden journeys.
-- [ ] Admin authority boundary.
-- [ ] Design-system authority.
-- [ ] Transaction-state model.
-- [ ] Responsive/accessibility policy.
-- [ ] Contributor evidence issues reference these artifacts and do not invent product rules.
+**Approval record:** Proposed by the maintainer on 2026-10-05. Effective only when the approving authority PR is independently reviewed and merged.
+
+- [x] Role/capability matrix.
+- [x] Sitemap and route contract.
+- [x] Golden journeys.
+- [x] Administrative authority boundary.
+- [x] Design-system authority.
+- [x] Transaction-state model.
+- [x] Responsive/accessibility policy.
+- [x] Contributor evidence issues reference these artifacts and do not invent product rules.
+
+Gate C approves semantics and design authority. It does not assert that the current frontend conforms, that privileged release-role mappings exist, or that Gates A/B are satisfied. Missing release-manifest authority remains a fail-closed implementation boundary.
 
 ## Gate D — Controlled activation
 

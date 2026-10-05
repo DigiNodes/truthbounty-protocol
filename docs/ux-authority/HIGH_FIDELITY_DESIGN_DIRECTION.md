@@ -1,53 +1,49 @@
 # High-Fidelity Frontend Design Direction
 
 **Authority:** Maintainers  
-**Status:** Proposed canonical visual direction  
-**Implementation:** Reserved for contributor issues; this document does not implement production UI
+**Status:** Approved visual and interaction direction  
+**Approved:** 2026-10-05  
+**Implementation:** Reserved for bounded contributor issues; this document does not certify production UI
 
 ## Decision
 
 TruthBounty V2 evolves the existing Geist, neutral-surface, indigo-accent application rather than replacing it with a disconnected shell. The interface is evidence-first: the next permitted action, canonical phase, deadline, freshness and uncertainty appear before decorative analytics.
 
-The approved reference prototype lives in `designs/frontend-v2/prototype/`. All values in the prototype are illustrative and must never be copied into production as protocol truth.
+The reference prototype lives in `designs/frontend-v2/prototype/`. Its values are illustrative and must never become production defaults or protocol truth.
 
-## Focused maintainer audit
+## Preserve
 
-This audit records only the authority decisions required to create the visual reference. The exhaustive route/screen inventory remains contributor issue truthbounty-frontend#432, and the component-state and accessibility matrices remain #434 and #435.
-
-### Preserve
-
-- `MainLayout`, `Sidebar` and `Topbar` as the shell boundaries.
+- `MainLayout`, `Sidebar` and `Topbar` as shell boundaries.
 - Geist Sans and Geist Mono.
 - Token-based light and dark modes.
 - 256 px desktop sidebar and 64 px topbar.
-- Skip link, reduced-motion support, mobile drawer and persistent pending-transaction visibility.
-- Existing transaction reconciliation and wallet/account controls.
+- Skip link, reduced-motion support, mobile drawer and pending-transaction visibility.
+- Existing transaction reconciliation and wallet/account controls that conform to canonical state.
 
-### Correct through contributor issues
+## Required corrections
 
-| Current finding | Approved direction | Existing issue |
-|---|---|---|
-| Sidebar entries are primarily buttons without canonical destinations | Every navigation destination is a real route with active-route semantics | #432 plus reserved shell issue |
-| Claim creation is duplicated in Sidebar and Topbar modals | All entry points resolve to `/claims/new` | #433, #370 |
-| Claim submission handlers log to the console | Canonical wallet/chain/simulation/transaction journey | #433, #370 |
-| The default dashboard presents network-wide data as a generic personal view | Role-aware overview with next actions before analytics | Reserved dashboard issues |
-| Production components can consume `src/data/mock-data.ts` | Explicit loading, empty, unavailable, stale and error states | #431, #406 |
-| Mixed hard-coded colours and tokens | Semantic tokens and approved primitives | #390 |
-| `All Chains` appears in a mutation-capable shell | Supported Optimism/EVM network context only | #364 and shell issue |
-| Placeholder Settings/Profile/Discord behavior remains | Canonical routes or explicit unavailable states; no dead controls | #432 and shell issue |
-| Admin and verifier information architecture is absent | Capability-gated routes with explicit denied states | Reserved shell/dashboard issues |
+| Current finding | Approved direction |
+|---|---|
+| Root aliases home, dashboard and claims | Adopt the canonical route contract and safe legacy redirects |
+| Claim creation is duplicated | Every entry resolves to `/claims/new` |
+| Generic dashboard mixes public/network and personal data | Role-aware `/dashboard` with next actions before analytics |
+| Mock data can reach production components | Explicit loading, empty, unavailable, stale and error states |
+| Mixed hard-coded colours and tokens | Semantic tokens and approved primitives |
+| Mutation shell can imply unsupported networks | Pinned Optimism/EVM release context only |
+| Placeholder settings/profile/community behavior remains | Canonical route or explicit unavailable state |
+| Generic admin presentation | Operations, governance and guardian contexts with fail-closed authority |
 
 ## Visual language
 
 ### Tone
 
-Calm, rigorous and operational. TruthBounty should feel closer to an evidence review workspace than a speculative trading dashboard.
+Calm, rigorous and operational. TruthBounty should feel like an evidence review workspace, not a speculative trading dashboard.
 
 ### Hierarchy
 
-1. Role and task context.
-2. Action required, eligibility, deadline or degraded-state notice.
-3. No more than four high-priority summary values.
+1. Identity, active context and task.
+2. Required action, eligibility, deadline or degraded-state notice.
+3. Up to four high-priority summary values.
 4. Primary queue or journey status.
 5. Supporting activity and analytics.
 
@@ -55,78 +51,63 @@ Calm, rigorous and operational. TruthBounty should feel closer to an evidence re
 
 - Primary indigo: `#5B5BF6` light / `#7C7CF7` dark.
 - Neutrals carry most of the composition.
-- Green means canonical success or finalized health only.
+- Green means canonical success/finalized health only.
 - Amber means pending, deadline, projection lag or attention.
 - Red is reserved for destructive or failed states.
 - Blue communicates neutral protocol information.
 - Text and icons accompany every semantic colour.
 
-### Components
+### Approved component treatments
 
-The prototype approves the visual treatment for:
-
-- role-aware application shell and context selector;
+- role-aware shell and context selector;
 - next-action and degraded-state notices;
-- metric cards with freshness/source copy;
-- claim list and responsive queue cards;
-- status badges;
-- protocol timeline;
+- metric cards with source/freshness copy;
+- claim lists and responsive queue cards;
+- status badges and protocol timelines;
 - evidence cards;
-- bounded admin health and operations queues;
-- step-based claim creation;
+- bounded operations, governance and emergency panels;
+- step-based claim creation and verification;
 - transaction, wallet and network controls;
-- empty/prototype-boundary state.
+- empty, denied, unavailable and prototype-boundary states.
 
-## Approved screens
+## Required screen library
 
-### Claimant dashboard
+The high-fidelity prototype must cover:
 
-Answers: “What needs my attention across my claims and rewards?”
-
-The first viewport contains an actionable notice, active claim counts, claimable rewards, recent claims and a personal protocol timeline. Network-wide mock metrics are prohibited as personal values.
-
-### Verifier dashboard
-
-Answers: “Which claims am I eligible to verify, and what deadline applies?”
-
-Eligibility and protected-information notices precede the queue. Queue cards expose only phase-appropriate evidence, deadline, stake context and the canonical workspace action.
-
-### Admin dashboard
-
-Answers: “Is the system healthy, and which bounded operation needs attention?”
-
-Health, queue age, governance/security notices and immutable audit references are allowed. Outcome overrides, fund movement and hidden bypass controls are prohibited.
-
-### Claim detail
-
-The claim statement, ID, phase, freshness and primary permitted action form the header. Evidence, protocol timeline, verification, dispute and settlement sections must not imply finality before canonical finalization.
-
-### Claim creation
-
-A dedicated five-step route: claim, evidence, funding, review and authorize. Local draft state is visually distinct from on-chain submission. Cost, chain, receiving contract and risk disclosure appear before authorization.
+1. product entry and public claim exploration;
+2. claimant dashboard and owned claims;
+3. verifier queue and verification workspace;
+4. operations, governance and guardian dashboards;
+5. claim detail with dispute and settlement variants;
+6. full claim-creation journey;
+7. disputes and appeals;
+8. rewards, reputation and withdrawals;
+9. transaction center;
+10. settings, session, wallet, chain and identity;
+11. status, help and documentation;
+12. loading, empty, error, denied, stale, offline, projection-lag and reorg states.
 
 ## Responsive behavior
 
-- Desktop: persistent sidebar; two-column content where it improves task scanning.
+- Desktop: persistent sidebar and task-oriented multi-column layouts.
 - Tablet: single-column primary flow with secondary panels below.
-- Mobile: focus-managed drawer, full-width primary actions, queue cards rather than compressed tables, and no horizontal workflow dependency.
+- Mobile: focus-managed drawer, full-width primary actions, queue cards instead of compressed tables, and no horizontal workflow dependency.
 - Touch targets are at least 44 by 44 CSS pixels.
-- At 200% zoom the journey remains operable without loss of information.
+- At 200% zoom every golden journey remains operable.
 
 ## Prototype boundaries
 
-The prototype demonstrates hierarchy, composition, navigation intent and responsive behavior. It does not define ABI/API payloads, verifier eligibility, admin powers, reward math, protocol statuses or production data. Where authority is unresolved, the prototype uses an explicit boundary rather than inventing behavior.
+The prototype defines hierarchy, composition, navigation intent and responsive behavior. It does not define ABI/API payloads, verifier eligibility math, role hashes, addresses, reward math or production data. Unresolved authority renders as an explicit unavailable boundary.
 
-## Contributor handoff
+## Contributor handoff order
 
-Implementation must be split by dependency:
-
-1. recover the frontend baseline (#429; #430 only if needed);
-2. complete evidence audits (#432, #434, #435);
-3. implement tokens/primitives (#390);
-4. implement the role-aware shell;
+1. recover and verify the frontend baseline;
+2. finish evidence audits and acceptance matrices;
+3. implement semantic tokens/primitives;
+4. migrate the canonical shell and routes;
 5. implement dashboards independently;
-6. integrate canonical claim, verification, dispute and reward journeys through their existing issues;
-7. run accessibility, responsive, contract and release gates.
+6. implement bounded journeys;
+7. integrate pinned contract/API artifacts;
+8. pass accessibility, responsive, contract and release gates.
 
-No redesign issue is active until maintainers apply `Stellar Wave`.
+No contributor issue is active until maintainers apply `Stellar Wave`.
