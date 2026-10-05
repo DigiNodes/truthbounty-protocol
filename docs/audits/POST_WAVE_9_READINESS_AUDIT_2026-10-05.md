@@ -36,7 +36,7 @@ Root causes at the audited head:
 5. TypeORM/PostgreSQL and Prisma/LibSQL/SQLite are both production dependencies.
 6. `.env.example` repeats database and Redis keys, defines incompatible `DATABASE_URL` values, mixes chain defaults and permits an empty indexed-contract set.
 
-Immediate recovery: #584. Architecture/config follow-ups: #585–#587.
+Immediate recovery: #584 and repair PR [API #588](https://github.com/DigiNodes/truthbounty-api/pull/588). Architecture/config follow-ups: #585–#587.
 
 Existing issues retained rather than duplicated:
 
@@ -57,8 +57,10 @@ Independent root causes at the audited head:
 5. `package.json` installs `solc` 0.8.37 while Foundry, Hardhat and the approved reproducibility manifest pin 0.8.28.
 6. deployment commands use `optimism_sepolia`/`optimism`, but Hardhat defines `optimismSepolia`/`optimismMainnet`.
 7. a clean install reports 22 dependency vulnerabilities, including seven high severity findings.
+8. the pinned Foundry release reports ignored `foundry.toml` policy keys, including fuzz depth and coverage settings.
+9. GitHub Actions references mix immutable commit pins with mutable release tags.
 
-Immediate recovery: #666 and repair PR #669. Toolchain/deployment alignment: #667. Supply-chain remediation: #668.
+Immediate recovery: #666 and repair PR #669. Toolchain/deployment alignment: #667. Supply-chain remediation: #668 and #670. Foundry policy reconciliation: #671.
 
 Existing issues retained rather than duplicated:
 
@@ -79,8 +81,11 @@ Root causes at the audited head:
 4. no `.env.example` defines the production configuration contract.
 5. the checked-in release manifest has deployment block zero and does not prove provenance for the canonical modular deployment.
 6. no privacy-safe client observability sink supports testnet soak decisions.
+7. duplicate transaction-status authorities expose inconsistent finality and recovery semantics.
+8. `ActiveClaimsTable` has conflicting injected-data and query-owning contracts.
+9. overlapping evidence-link implementations conflate safe navigation and clipboard privacy behavior.
 
-Immediate recovery: #558 and repair PR #562. Storybook starts as stacked draft PR #563 for #552. Configuration/provenance/observability: #559–#561.
+Immediate recovery: #558 and repair PR #562. Storybook starts as stacked draft PR #563 for #552. Configuration/provenance/observability: #559–#561. Proven Wave-9 convergence work: #564–#566.
 
 Existing issues retained rather than duplicated:
 
@@ -102,9 +107,9 @@ No item in this table is activated.
 | Order | Candidate work | State |
 | --- | --- | --- |
 | 0 | Independent Gate C approval replacement | required; no valid approval exists |
-| 1 | API #584, Contracts #666, Frontend #558 | Gate B baseline repair |
+| 1 | API #584/#588, Contracts #666/#669, Frontend #558/#562 | Gate B baseline repair |
 | 2 | Protocol #14 | enforce Gate A using stable repaired check names |
-| 3 | Contracts #667–#668; API #585–#587; Frontend #559–#561 | architecture, configuration and supply-chain stabilization |
+| 3 | Contracts #667–#668/#670–#671; API #585–#587; Frontend #559–#561/#564–#566 | architecture, configuration, ownership and supply-chain stabilization |
 | 4 | Contracts #382/#525/#536 | canonical deployment, event and readiness authority |
 | 5 | Frontend #560 and API #586 | consume the same pinned release package |
 | 6 | Frontend #552–#557 | Gate C component/routes/compositions, with #552 currently draft-stacked |
