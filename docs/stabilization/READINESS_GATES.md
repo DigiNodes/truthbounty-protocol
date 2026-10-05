@@ -29,7 +29,15 @@ Additional requirements:
 
 ## Gate C — UX authority approved
 
-**Approval record:** Proposed by the maintainer on 2026-10-05. Effective only when the approving authority PR is independently reviewed and merged.
+**Status:** Approval candidate. The semantic and visual evidence is complete, but Gate C is not effective until this exact approval record receives an independent human `APPROVED` review and is merged.
+
+**Evidence baseline (2026-10-05):**
+
+- Post-Wave-9 reconciliation: protocol PR [#10](https://github.com/DigiNodes/truthbounty-protocol/pull/10), head `561f583a4e3827eade2e6ed458a8f52e74caca08`, merged as `c132a2ad2b050f58e1fec9c484c421e53cdc81dc`.
+- Route and capability authority: protocol PR [#11](https://github.com/DigiNodes/truthbounty-protocol/pull/11), head `d0287de89b20d5adb0276999d731ca101faeb902`, merged as `ea693bf689a747f4c154475fcf41566de1a545f5`.
+- Expanded 19-screen authority prototype: protocol PR [#12](https://github.com/DigiNodes/truthbounty-protocol/pull/12), head `1b131f5f909b558056f479406d1e185569b2db6a`, merged as `d0287de89b20d5adb0276999d731ca101faeb902`.
+
+**Approval rule:** the approving reviewer must be a human other than the author/last pusher. Approval applies only to the exact head SHA of the Gate C approval-record PR; any later change requires renewed approval.
 
 - [x] Role/capability matrix.
 - [x] Sitemap and route contract.
