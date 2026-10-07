@@ -1,7 +1,8 @@
 # TruthBounty V2 Brand Foundation
 
 **Authority:** Maintainers  
-**Status:** Proposed for Brand Approval  
+**Status:** Approved  
+**Approved:** 2026-10-07  
 **Direction:** Dark-first, accessible light theme supported  
 
 ## Identity
@@ -76,4 +77,4 @@ Light mode remains a fully supported accessible theme using Frost White as the c
 
 ## Implementation boundary
 
-This foundation approves identity and theme direction only. It does not approve navigation, layouts, components, production UI, ABI/API behavior or illustrative prototype data. Foundation Approval is the next independent design gate.
+This approved foundation establishes identity and theme direction only. It does not approve navigation, layouts, components, production UI, ABI/API behavior or illustrative prototype data. Foundation Approval is the next independent design gate.
