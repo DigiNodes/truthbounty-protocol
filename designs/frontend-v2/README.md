@@ -9,6 +9,15 @@ These assets define hierarchy, composition and required regions. Implementation 
 
 The brand foundation supersedes the purple/indigo palette shown in older prototype artifacts. Those artifacts remain composition references only until replaced through the new design batches.
 
+## Frontend foundation
+
+- [Foundation package and board index](./foundation/README.md)
+- [Foundation authority](../../docs/ux-authority/FRONTEND_FOUNDATION_AUTHORITY.md)
+- [Machine-readable CSS tokens](./foundation/tokens.css)
+- [Tool-neutral design tokens](./foundation/tokens.json)
+
+The foundation boards define reusable shells, navigation, primitives, canonical states and responsive/accessibility behaviour. They do not approve page-specific compositions.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
