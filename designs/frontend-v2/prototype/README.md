@@ -2,6 +2,10 @@
 
 This dependency-free prototype translates the approved UX authority into a responsive visual reference. It is not production application code. Every value shown is illustrative and must never be presented as protocol truth.
 
+## Rendered implementation references
+
+The approved screen-by-screen PNG authority is versioned under [`../screens/`](../screens/README.md). The interactive prototype and rendered pack must be reviewed together; the semantic authority documents take precedence if an inconsistency is discovered.
+
 ## Included views
 
 - public product home and claim exploration;

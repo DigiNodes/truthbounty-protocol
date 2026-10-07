@@ -1,0 +1,168 @@
+{
+  "version": "v2-2026-10-07",
+  "status": "approval-candidate",
+  "authority": [
+    "Protocol PR #11",
+    "Protocol PR #12",
+    "Protocol PR #13"
+  ],
+  "globalFrontendIssues": [
+    "DigiNodes/truthbounty-frontend#552",
+    "DigiNodes/truthbounty-frontend#553"
+  ],
+  "illustrativeDataOnly": true,
+  "stellarWaveAuthorized": false,
+  "screens": [
+    {
+      "file": "01-product-home",
+      "route": "public-home",
+      "capability": "claimant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/01-product-home.png",
+      "tablet": "tablet/01-product-home.png",
+      "mobile": "mobile/01-product-home.png"
+    },
+    {
+      "file": "02-explore-claims",
+      "route": "explore",
+      "capability": "public",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/02-explore-claims.png",
+      "tablet": "tablet/02-explore-claims.png",
+      "mobile": "mobile/02-explore-claims.png"
+    },
+    {
+      "file": "03-claimant-dashboard",
+      "route": "claimant",
+      "capability": "claimant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/03-claimant-dashboard.png",
+      "tablet": "tablet/03-claimant-dashboard.png",
+      "mobile": "mobile/03-claimant-dashboard.png"
+    },
+    {
+      "file": "04-my-claims",
+      "route": "my-claims",
+      "capability": "claimant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/04-my-claims.png"
+    },
+    {
+      "file": "05-claim-detail",
+      "route": "claim-detail",
+      "capability": "public",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/05-claim-detail.png",
+      "tablet": "tablet/05-claim-detail.png",
+      "mobile": "mobile/05-claim-detail.png"
+    },
+    {
+      "file": "06-create-claim",
+      "route": "create-claim",
+      "capability": "claimant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/06-create-claim.png",
+      "tablet": "tablet/06-create-claim.png",
+      "mobile": "mobile/06-create-claim.png"
+    },
+    {
+      "file": "07-verification-queue",
+      "route": "verifier",
+      "capability": "verifier",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#555",
+      "desktop": "desktop/07-verification-queue.png",
+      "tablet": "tablet/07-verification-queue.png",
+      "mobile": "mobile/07-verification-queue.png"
+    },
+    {
+      "file": "08-verification-workspace",
+      "route": "verification-workspace",
+      "capability": "verifier",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#555",
+      "desktop": "desktop/08-verification-workspace.png",
+      "tablet": "tablet/08-verification-workspace.png",
+      "mobile": "mobile/08-verification-workspace.png"
+    },
+    {
+      "file": "09-disputes",
+      "route": "disputes",
+      "capability": "public-participant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#555",
+      "desktop": "desktop/09-disputes.png",
+      "tablet": "tablet/09-disputes.png",
+      "mobile": "mobile/09-disputes.png"
+    },
+    {
+      "file": "10-rewards",
+      "route": "rewards",
+      "capability": "claimant",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/10-rewards.png"
+    },
+    {
+      "file": "11-transactions",
+      "route": "transactions",
+      "capability": "connected-wallet",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#554",
+      "desktop": "desktop/11-transactions.png",
+      "tablet": "tablet/11-transactions.png",
+      "mobile": "mobile/11-transactions.png"
+    },
+    {
+      "file": "12-operations-overview",
+      "route": "admin",
+      "capability": "operations",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#556",
+      "desktop": "desktop/12-operations-overview.png"
+    },
+    {
+      "file": "13-operations",
+      "route": "operations",
+      "capability": "operations",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#556",
+      "desktop": "desktop/13-operations.png"
+    },
+    {
+      "file": "14-governance",
+      "route": "governance",
+      "capability": "governance",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#556",
+      "desktop": "desktop/14-governance.png"
+    },
+    {
+      "file": "15-emergency-guardian",
+      "route": "guardian",
+      "capability": "guardian-pause",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#556",
+      "desktop": "desktop/15-emergency-guardian.png"
+    },
+    {
+      "file": "16-audit-log",
+      "route": "audit",
+      "capability": "privileged-read",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#556",
+      "desktop": "desktop/16-audit-log.png"
+    },
+    {
+      "file": "17-settings",
+      "route": "settings",
+      "capability": "connected-wallet",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#557",
+      "desktop": "desktop/17-settings.png"
+    },
+    {
+      "file": "18-service-status",
+      "route": "status",
+      "capability": "public",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#557",
+      "desktop": "desktop/18-service-status.png"
+    },
+    {
+      "file": "19-documentation",
+      "route": "help",
+      "capability": "public",
+      "frontendIssue": "DigiNodes/truthbounty-frontend#557",
+      "desktop": "desktop/19-documentation.png"
+    }
+  ]
+}

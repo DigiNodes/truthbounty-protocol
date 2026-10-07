@@ -4,11 +4,12 @@ These assets define hierarchy, composition and required regions. Implementation 
 
 ## High-fidelity reference
 
+- [Versioned rendered screen collection](./screens/README.md)
 - [Interactive responsive prototype](./prototype/index.html)
 - [Prototype notes and boundaries](./prototype/README.md)
 - [High-fidelity design direction](../../docs/ux-authority/HIGH_FIDELITY_DESIGN_DIRECTION.md)
 
-The prototype is a design artifact, not production application code. Its data is illustrative and must not be copied into production as protocol truth.
+The rendered screen collection is the reviewable implementation reference. The prototype is the interactive companion. Both are design artifacts, not production application code, and their illustrative data must not be copied into production as protocol truth.
 
 ## Low-fidelity foundations
 
