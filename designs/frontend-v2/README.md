@@ -2,6 +2,13 @@
 
 These assets define hierarchy, composition and required regions. Implementation must follow the route, role, transaction-state, responsive and accessibility authority under `docs/ux-authority`.
 
+## Brand foundation
+
+- [Brand asset usage](./brand/README.md)
+- [Brand, colour, typography and theme authority](../../docs/ux-authority/BRAND_FOUNDATION.md)
+
+The brand foundation supersedes the purple/indigo palette shown in older prototype artifacts. Those artifacts remain composition references only until replaced through the new design batches.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
@@ -19,7 +26,9 @@ The prototype is a design artifact, not production application code. Its data is
 
 ## Interpretation
 
-- Purple marks the primary action or active context.
+- Signal Cyan (`#22D3EE`) marks evidence input, focus and brand signal.
+- Proof Blue (`#4F7CFF`) marks resolved output, primary action and active context.
+- Bounty Gold (`#F5B942`) is reserved for rewards and staking.
 - Amber marks pending, stale or attention-required state.
 - Green is reserved for confirmed/finalized success.
 - Every visual status also requires text and an accessible name.
