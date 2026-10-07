@@ -7,9 +7,9 @@
 
 ## Decision
 
-TruthBounty V2 evolves the existing Geist, neutral-surface, indigo-accent application rather than replacing it with a disconnected shell. The interface is evidence-first: the next permitted action, canonical phase, deadline, freshness and uncertainty appear before decorative analytics.
+TruthBounty V2 evolves the existing Geist application into the approved dark-first Signal Cyan and Proof Blue identity rather than replacing it with a disconnected shell. The interface is evidence-first: the next permitted action, canonical phase, deadline, freshness and uncertainty appear before decorative analytics.
 
-The reference prototype lives in `designs/frontend-v2/prototype/`. Its values are illustrative and must never become production defaults or protocol truth.
+The reference prototype lives in `designs/frontend-v2/prototype/`. Its values are illustrative and must never become production defaults or protocol truth. The approved brand foundation in `docs/ux-authority/BRAND_FOUNDATION.md` supersedes the prototype's older indigo/purple palette.
 
 ## Preserve
 
@@ -49,12 +49,13 @@ Calm, rigorous and operational. TruthBounty should feel like an evidence review 
 
 ### Colour
 
-- Primary indigo: `#5B5BF6` light / `#7C7CF7` dark.
-- Neutrals carry most of the composition.
+- Signal Cyan `#22D3EE` communicates evidence input, focus and brand signal.
+- Proof Blue `#4F7CFF` communicates resolved output, primary action and active context.
+- Ink Navy `#070A12`, Deep Slate `#101522` and Frost White `#F7F9FC` carry most of the composition.
+- Bounty Gold `#F5B942` is reserved for rewards and staking.
 - Green means canonical success/finalized health only.
 - Amber means pending, deadline, projection lag or attention.
 - Red is reserved for destructive or failed states.
-- Blue communicates neutral protocol information.
 - Text and icons accompany every semantic colour.
 
 ### Approved component treatments
