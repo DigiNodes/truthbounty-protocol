@@ -18,6 +18,13 @@ The brand foundation supersedes the purple/indigo palette shown in older prototy
 
 The foundation boards define reusable shells, navigation, primitives, canonical states and responsive/accessibility behaviour. They do not approve page-specific compositions.
 
+## Public and claimant screens
+
+- [Batch 3 board index](./public-claimant/README.md)
+- [Public and claimant screen authority](../../docs/ux-authority/PUBLIC_CLAIMANT_SCREEN_AUTHORITY.md)
+
+These page-level boards approve the public discovery and claimant journey: product landing, exploration, claim detail, progressive wallet entry, claimant dashboard, claim submission, owned claims, rewards and transaction recovery. Illustrative content is composition data only.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
