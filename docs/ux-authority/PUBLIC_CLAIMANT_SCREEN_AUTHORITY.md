@@ -1,7 +1,7 @@
 # TruthBounty V2 Public and Claimant Screen Authority
 
 **Authority:** Maintainers  
-**Status:** Proposed for Public and Claimant Approval  
+**Status:** Approved — protocol PR #19, merged 2026-10-08  
 **Runtime:** Optimism/EVM only  
 **Dependencies:** Approved Brand Foundation and Frontend Foundation
 
