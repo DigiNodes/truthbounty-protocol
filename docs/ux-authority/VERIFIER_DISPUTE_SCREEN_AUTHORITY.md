@@ -1,7 +1,7 @@
 # TruthBounty V2 Verifier and Dispute Screen Authority
 
 **Authority:** Maintainers  
-**Status:** Proposed for Verifier and Dispute Approval  
+**Status:** Approved — protocol PR #20, merged 2026-10-09  
 **Runtime:** Optimism/EVM only  
 **Dependencies:** Approved Brand, Frontend Foundation, and Public/Claimant authorities
 
@@ -60,4 +60,3 @@ Approve the page-level verifier and dispute compositions while preserving a stri
 ## Approval boundary
 
 This batch does not approve operations, governance, guardian, support or legal screens. It does not activate contributor work and does not authorize applying `Stellar Wave`. Implementations remain non-authoritative consumers of contracts, the pinned release manifest and labelled API projections.
-
