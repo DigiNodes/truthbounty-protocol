@@ -33,6 +33,14 @@ These page-level boards approve the public discovery and claimant journey: produ
 
 These boards approve the verifier and dispute composition while failing closed where current release interfaces are not pinned or compatible. They do not create contract authority or permit frontend inference from event documentation.
 
+## Privileged screens
+
+- [Batch 5 board index](./privileged/README.md)
+- [Privileged screen authority](../../docs/ux-authority/PRIVILEGED_SCREEN_AUTHORITY.md)
+- [Observed Contracts/API interface boundaries](./privileged/INTERFACE_OBSERVATIONS.md)
+
+These boards separate operations, governance and emergency-guardian contexts. They preserve contract and protected-API authority, distinguish request events from completed protocol mutations, and fail closed on unverified or legacy-only mappings.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
@@ -53,7 +61,7 @@ The prototype is a design artifact, not production application code. Its data is
 - Signal Cyan (`#22D3EE`) marks evidence input, focus and brand signal.
 - Proof Blue (`#4F7CFF`) marks resolved output, primary action and active context.
 - Bounty Gold (`#F5B942`) is reserved for rewards and staking.
-- Amber marks pending, stale or attention-required state.
+- Amber marks pending, stale or attention-required state and identifies narrow guardian context in Batch 5.
 - Green is reserved for confirmed/finalized success.
 - Every visual status also requires text and an accessible name.
 - On mobile, the sidebar becomes a drawer and multi-column regions stack by documented priority.
