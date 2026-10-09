@@ -1,6 +1,7 @@
 # Privileged Screen Authority
 
-**Status:** Proposed — requires maintainer approval  
+**Status:** Approved maintainer authority  
+**Approved:** 2026-10-09  
 **Batch:** 5 — Operations, governance and emergency guardian  
 **Runtime:** Optimism/EVM only
 
