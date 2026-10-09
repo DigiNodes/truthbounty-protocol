@@ -25,6 +25,14 @@ The foundation boards define reusable shells, navigation, primitives, canonical 
 
 These page-level boards approve the public discovery and claimant journey: product landing, exploration, claim detail, progressive wallet entry, claimant dashboard, claim submission, owned claims, rewards and transaction recovery. Illustrative content is composition data only.
 
+## Verifier and dispute screens
+
+- [Batch 4 board index](./verifier-dispute/README.md)
+- [Verifier and dispute screen authority](../../docs/ux-authority/VERIFIER_DISPUTE_SCREEN_AUTHORITY.md)
+- [Observed Contracts/API interface boundaries](./verifier-dispute/INTERFACE_OBSERVATIONS.md)
+
+These boards approve the verifier and dispute composition while failing closed where current release interfaces are not pinned or compatible. They do not create contract authority or permit frontend inference from event documentation.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
