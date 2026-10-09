@@ -1,7 +1,8 @@
 # Sitemap and Route Contract
 
-**Status:** Approved maintainer authority  
+**Status:** Approved maintainer authority; Batch 6 public-trust extension proposed  
 **Approved:** 2026-10-05  
+**Batch 6 extension proposed:** 2026-10-09  
 **Runtime:** Optimism/EVM only
 
 This contract defines durable destinations and journey ownership. Framework implementation details may vary, but capability boundaries, deep links and mutation safety may not.
@@ -30,7 +31,17 @@ This contract defines durable destinations and journey ownership. Framework impl
 | Admin operation | `/admin/operations/:queue` | Authorized operations context | Explicit operation with impact and audit trail |
 | Admin audit | `/admin/audit` | Authorized admin context | Immutable audit and canonical transaction references |
 | Service status | `/status` | All | RPC, API, indexer and release-manifest degradation |
+| Incident detail | `/status/incidents/:incidentId` | All | Sanitized public incident detail, impact and history |
 | Documentation/help | `/docs` | All | Protocol and journey guidance |
+| Documentation article | `/docs/:slug` | All | Versioned, release-labelled guidance article |
+| Contact | `/contact` | All | Contact category selection and approved public channels |
+| Support | `/support` | All | Troubleshooting and configured minimum-data support submission |
+| Security | `/security` | All | Responsible-disclosure guidance and protected reporting channel |
+| Privacy | `/privacy` | All | Versioned, legally approved privacy notice |
+| Terms | `/terms` | All | Versioned, legally approved terms of use |
+| Disclosures | `/disclosures` | All | Protocol, participation, testnet and mainnet risks |
+
+Support and legal destinations may remain unavailable until their contact, backend or legal authority is configured. A canonical route is not authority to publish placeholder legal text, collect support data or solicit sensitive security reports.
 
 ## Capability contexts
 
@@ -71,3 +82,6 @@ Legacy aliases may redirect only after preserving query/hash state. They must no
 7. Public reads remain available when safe; every mutation fails closed on unsupported chain, missing artifacts or stale critical authority.
 8. Routes expose active state programmatically and restore focus after navigation.
 9. Contributor issues may implement this contract but may not add roles, destinations or privileged actions without maintainer approval.
+10. Support and legal routes collect no data and make no service or legal commitment until their corresponding authority is approved and configured.
+11. Public incident routes use a sanitized public projection; they never reuse protected administrator incident responses directly.
+12. Error and maintenance routes preserve context and never auto-submit, request a signature, switch networks or discard a recoverable draft.

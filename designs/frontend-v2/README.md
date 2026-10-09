@@ -41,6 +41,14 @@ These boards approve the verifier and dispute composition while failing closed w
 
 These boards separate operations, governance and emergency-guardian contexts. They preserve contract and protected-API authority, distinguish request events from completed protocol mutations, and fail closed on unverified or legacy-only mappings.
 
+## Support and legal screens
+
+- [Batch 6 board index](./support-legal/README.md)
+- [Support and legal screen authority](../../docs/ux-authority/SUPPORT_LEGAL_SCREEN_AUTHORITY.md)
+- [Content and legal observations](./support-legal/CONTENT_LEGAL_OBSERVATIONS.md)
+
+These boards complete public documentation, help, status, incident, contact, support, security, privacy, terms, risk and system-state compositions. Privacy and terms are review structures only until their policy and legal decisions are approved.
+
 ## High-fidelity reference
 
 - [Interactive responsive prototype](./prototype/index.html)
