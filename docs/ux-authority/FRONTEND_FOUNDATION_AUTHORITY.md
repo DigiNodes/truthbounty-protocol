@@ -1,7 +1,8 @@
 # Frontend Foundation Authority
 
 **Authority:** Maintainers  
-**Status:** Proposed for Foundation Approval  
+**Status:** Approved — Protocol PR #18  
+**Approved:** 2026-10-07  
 **Depends on:** Approved Brand Foundation and existing route/capability/transaction authorities  
 **Runtime:** Optimism/EVM only  
 
@@ -92,3 +93,4 @@ Every relevant surface provides loading, empty, stale, offline, unavailable, err
 Foundation Approval does not certify page-specific landing, claimant, verifier, dispute, operations, governance, guardian, support or legal screens. Those remain separate design batches. No frontend implementation issue may treat illustrative text, values, addresses, roles or status as protocol truth.
 
 No contributor issue is active until maintainers explicitly apply `Stellar Wave`.
+

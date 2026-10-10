@@ -1,8 +1,8 @@
 # Sitemap and Route Contract
 
-**Status:** Approved maintainer authority; Batch 6 public-trust extension proposed  
-**Approved:** 2026-10-05  
-**Batch 6 extension proposed:** 2026-10-09  
+**Status:** Approved maintainer authority, including Batch 6 public-trust extension  
+**Initially approved:** 2026-10-05  
+**Batch 6 extension approved:** Protocol PR #22, 2026-10-09  
 **Runtime:** Optimism/EVM only
 
 This contract defines durable destinations and journey ownership. Framework implementation details may vary, but capability boundaries, deep links and mutation safety may not.
@@ -85,3 +85,4 @@ Legacy aliases may redirect only after preserving query/hash state. They must no
 10. Support and legal routes collect no data and make no service or legal commitment until their corresponding authority is approved and configured.
 11. Public incident routes use a sanitized public projection; they never reuse protected administrator incident responses directly.
 12. Error and maintenance routes preserve context and never auto-submit, request a signature, switch networks or discard a recoverable draft.
+
