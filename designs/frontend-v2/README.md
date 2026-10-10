@@ -2,6 +2,10 @@
 
 These assets define hierarchy, composition and required regions. Implementation must follow the route, role, transaction-state, responsive and accessibility authority under `docs/ux-authority`.
 
+## Design-to-implementation reconciliation
+
+All six design batches are approved. The [Frontend Implementation Matrix](../../docs/ux-authority/FRONTEND_IMPLEMENTATION_MATRIX.md) is the canonical mapping from approved boards to routes, capabilities, data sources, callable interfaces, states, tracking epics and dependencies. Implementation issues must reference it and the applicable batch authority.
+
 ## Brand foundation
 
 - [Brand asset usage](./brand/README.md)
@@ -74,3 +78,4 @@ The prototype is a design artifact, not production application code. Its data is
 - Every visual status also requires text and an accessible name.
 - On mobile, the sidebar becomes a drawer and multi-column regions stack by documented priority.
 - Where product or protocol authority is unresolved, use an explicit unavailable/boundary state rather than inventing behavior.
+

@@ -1,6 +1,7 @@
 # Support and Legal Screen Authority
 
-**Status:** Proposed — requires maintainer approval  
+**Status:** Approved — Protocol PR #22  
+**Approved:** 2026-10-09  
 **Batch:** 6 — Documentation, status, support and legal  
 **Runtime:** Optimism/EVM only
 
@@ -83,3 +84,4 @@ Routes may render explicit unavailable states until their backend, contact or le
 ## Approval effect
 
 Approval establishes visual, semantic and route authority. It does not approve legal text, configure support/security channels, expose protected incident data, activate frontend contributor issues or authorize the `Stellar Wave` label.
+
